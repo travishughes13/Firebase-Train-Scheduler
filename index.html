@@ -8,36 +8,73 @@
 
   <!-- Link to style.css -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  
+
+  <!-- Link to moment.js -->
+  <link rel="stylesheet" type="text/css" href="https://momentjs.com/downloads/moment-with-locales.js">
+
+  <!-- Link to Firebase -->
+   <!-- Firebase JavaScript Link -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+  <!-- Link to jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+  <!-- font-family: 'Righteous', cursive; -->
+  <!-- font-family: 'Macondo', cursive; -->
+
 <head>
+
+  <title>Train of Fire</title>
 
 </head>
 
 <body>
 
   <div class="jumbotron">
-    <img src="img1.jpg" style="width:100%">
+    <img src="assets/images/jumbotron-train2.jpg" style="width:100%">
+
        <!-- Trigger/Open The Modal -->
-          <button id="myBtn">Open Modal</button>
+          <button id="clickMe" class="btn btn-success">Click here to enter your train information</button>
+
+    </img>
 
        <!-- The Modal -->
           <div id="myModal" class="modal">
 
         <!-- Modal content -->
           <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+          <span class="close">&times;</span><h3>Please enter your train information, conductor</h3>
+          <div class="row" style="color: white;">Train Name
+          <input type="text" name="trainName" class="inputry1 col-md-12" value="Enter your train name"></input>
+          </div>
+          <div class="row" style="color: white;">Destination
+          <input type="text" name="destination" class="inputry2 col-md-12" value="Enter the destination"></input>
+          </div>
+          <div class="row" style="color: white;">Arrival Time
+          <input type="text" name="beGentle" class="inputry3 col-md-12" value="Enter the first arrival time"></input>
+          </div>
+          <div class="row" style="color: white;">Frequency
+          <input type="text" name="frequency" class="inputry4 col-md-12" value="Enter the frequency (in minutes)"></input>
+          </div>
+          <div class="row" style="color: white;">
+          <button id="makeEntry" class="btn btn-success">Click here to submit</button>
+          <button id="abortAbort" class="btn btn-danger">Click here to cancel</button>
+          </div>
           </div>
 
           </div>
   </div>
 
 </body>
-
-  <!-- Link to jQuery -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
 	<!-- Link to Javascript file -->
 	<script type="text/javascript" src="assets/javascript/logicoffire.js"></script>
+
+  <!-- Bootstrap Javascript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 </html>
