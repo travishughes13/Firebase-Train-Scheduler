@@ -54,6 +54,7 @@ function reset() {
 // This click function updates firebase, updates the table,
 // makes the time calculations, and runs the rest function
 $(document).on('click', '#makeEntry', function() {
+  event.preventDefault();
 
   // This is reserved for firebase data entry and updating the table on screen
       var tName = $('.inputry1').val();
