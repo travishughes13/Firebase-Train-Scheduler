@@ -35,13 +35,50 @@
 
 <body>
 
+<header id="questions" class="navbar navbar-default" style="background-color: transparent; border-color: teal; border-style: solid; border-width: 2px;">
+
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <div class="navbar-brand" style="color: teal;">The trains have to run on time, conductor</div>
+
+    </div>
+
+  </div>
+
+</header>
+
   <div class="jumbotron">
-    <img src="assets/images/jumbotron-train2.jpg" style="width:100%">
 
-       <!-- Trigger/Open The Modal -->
-          <button id="clickMe" class="btn btn-success">Click here to enter your train information</button>
+    <table id="trainTable" class="table table-bordered" style="width:100%;">
+  <tr>
+    <th>Train Name</th>
+    <th>Destination</th> 
+    <th>First Arrival Time</th>
+    <th>Next Arrival Time</th>
+  </tr>
+  <tr>
+    <td>The Imagination Limited</td>
+    <td>Washington DC</td>
+    <td>11:58PM</td>
+    <td>4:04AM</td>
+  </tr>
+  <tr>
+    <td>The Schwarzenegger Express</td>
+    <td>Sacramento</td>
+    <td>T800</td>
+    <td>T1000</td>
+  </tr>
+  <tr id="trainEnd">
+    <td>The 300</td>
+    <td>Thermopylae</td>
+    <td>480BC</td>
+    <td>450BC</td>
+  </tr>
+</table>
 
-    </img>
+
 
        <!-- The Modal -->
           <div id="myModal" class="modal">
@@ -49,19 +86,19 @@
         <!-- Modal content -->
           <div class="modal-content">
           <span class="close">&times;</span><h3>Please enter your train information, conductor</h3>
-          <div class="row" style="color: white;">Train Name
+          <div class="row">Train Name
           <input type="text" name="trainName" class="inputry1 col-md-12" value="Enter your train name"></input>
           </div>
-          <div class="row" style="color: white;">Destination
+          <div class="row">Destination
           <input type="text" name="destination" class="inputry2 col-md-12" value="Enter the destination"></input>
           </div>
-          <div class="row" style="color: white;">Arrival Time
+          <div class="row">Arrival Time (Military)
           <input type="text" name="beGentle" class="inputry3 col-md-12" value="Enter the first arrival time"></input>
           </div>
-          <div class="row" style="color: white;">Frequency
+          <div class="row">Frequency (in minutes)
           <input type="text" name="frequency" class="inputry4 col-md-12" value="Enter the frequency (in minutes)"></input>
           </div>
-          <div class="row" style="color: white;">
+          <div class="row">
           <button id="makeEntry" class="btn btn-success">Click here to submit</button>
           <button id="abortAbort" class="btn btn-danger">Click here to cancel</button>
           </div>
@@ -70,7 +107,19 @@
           </div>
   </div>
 
+
+       <!-- Trigger/Open The Modal -->
+          <button id="clickMe" class="btn btn-success">Click here to enter your train information</button>
+
+<!-- This is the footer -->
+
+<footer>&#169; Copyright 2017 <a href="https://travishughes13.github.io/Bootstrap-Portfolio/" target="_blank" style="color: teal">Various Hues</a></footer>
+
 </body>
+
+  <!-- This links to moment -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.js"></script>
+
 	<!-- Link to Javascript file -->
 	<script type="text/javascript" src="assets/javascript/logicoffire.js"></script>
 

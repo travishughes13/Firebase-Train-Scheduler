@@ -6,52 +6,27 @@ body {
 }
 
 h3 {
-  color: white;
+  color: black;
   margin: auto;
   margin-bottom: 15px;
 }
 
+th {
+  background-color: darkblue;
+  color: white
+}
+
 .jumbotron {
+  margin-top: 55px;
+  height: 450px;
   background-color: black;
+  background-image: url('../images/jumbotron-train2.jpg');
+  background-size: 100% 100%;
 }
 
-.inputry1 {
+.inputry1, .inputry2, .inputry3, .inputry4 {
   color: gray;
   background-color: white;
-  border-color: limegreen;
-  height: 35px;
-  margin-bottom: 15px;
-  font-size: 25px;
-  width: 100%;
-  float: left;
-}
-
-.inputry2 {
-  color: gray;
-  background-color: white;
-  border-color: limegreen;
-  height: 35px;
-  margin-bottom: 15px;
-  font-size: 25px;
-  width: 100%;
-  float: left;
-}
-
-.inputry3 {
-  color: gray;
-  background-color: white;
-  border-color: limegreen;
-  height: 35px;
-  margin-bottom: 15px;
-  font-size: 25px;
-  width: 100%;
-  float: left;
-}
-
-.inputry4 {
-  color: gray;
-  background-color: white;
-  border-color: limegreen;
   height: 35px;
   margin-bottom: 15px;
   font-size: 25px;
@@ -65,8 +40,8 @@ h3 {
   height: 35px;
   width: 150px;
   margin-top: 50px;
-  margin-left: 12%;
-  margin-right: 30%;
+  margin-left: 33%;
+  margin-right: 25px;
   float: left;
 }
 
@@ -95,7 +70,7 @@ h3 {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: darkblue;
+    background-color: white;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -119,9 +94,105 @@ h3 {
 }
 
 #clickMe {
-  margin-left: 32%;
+  margin-left: 38%;
+  margin-top: 25px;
   z-index: 1;
-  position: fixed;
-  margin-top: -75px;
   color: white;
+
+}
+
+#trainTable {
+  background-color: white;
+}
+
+/*This controls the navbar - it is not important*/
+.navbar-default {
+  background-image: url('');
+  border-bottom-color: teal;
+  border-bottom-width: 2px;
+  border-top-color: black;
+  border-left-color: black;
+  border-right-color: black;
+  font-family: 'Righteous', cursive;
+}
+
+.navbar-brand {
+  background-color: transparent;
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+}
+
+.navbar {
+  background-color: black;
+  border-style: solid;
+  border-color: hotpink;
+}
+
+footer {
+  width: 100%;
+  color: teal;
+  background-color: black;
+  padding-top: 15px;
+  height: 55px;
+  border-top-color: teal;
+  border-top-width: 5px;
+  text-align: center;
+  border-top-style: solid;
+  bottom: 0px;
+  position: fixed;
+  font-family: 'Righteous', cursive;
+}
+
+@media screen and (max-width: 840px) {
+
+  #makeEntry {
+  margin-left: 27%;
+}
+
+#clickMe {
+  margin-left: 33%;
+}
+
+}
+
+@media screen and (max-width: 640px) {
+
+  #makeEntry {
+  margin-left: 18%;
+}
+
+#clickMe {
+  margin-left: 28%;
+}
+
+}
+
+@media screen and (max-width: 520px) {
+
+  h3 {
+    font-size: 20px;
+  }
+
+  #makeEntry {
+  margin-left: 5px;
+  margin-right: 45px;
+  width: 125px;
+  font-size: 10px;
+}
+
+#abortAbort {
+  width: 125px;
+  font-size: 10px;
+}
+
+.inputry1, .inputry2, .inputry3, .inputry4 {
+  height: 20px;
+  font-size: 15px;
+}
+
+#clickMe {
+  margin-left: 13%;
+  margin-top: 150px;
+}
+
 }

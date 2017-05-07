@@ -24,6 +24,18 @@ window.onclick = function(event) {
     }
 };
 
+// Firebase Set-Up - commented out until further notice
+var config = {
+      apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
+      authDomain: "helloworld-4ff96.firebaseapp.com",
+      databaseURL: "https://helloworld-4ff96.firebaseio.com/",
+      storageBucket: "helloworld-4ff96.appspot.com"
+    };
+      firebase.initializeApp(config);
+
+// This gives us our referrant
+var database = firebase.database();
+
 // This resets the modal
 function reset() {
     // This resets the field
@@ -38,22 +50,32 @@ function reset() {
     $('.inputry4').val('Enter the frequency (in minutes)');
 };
 
-$(document).on('click', '#makeEntry', function() {
-  // This is reserved for firebase data entry and updating the table on screen
 
+// This click function updates firebase, updates the table,
+// makes the time calculations, and runs the rest function
+$(document).on('click', '#makeEntry', function() {
+
+  // This is reserved for firebase data entry and updating the table on screen
+      var tName = $('.inputry1').val();
+      var dName = $('.inputry2').val();
+      var aTime = $('.inputry3').val();
+      var lambda = $('.inputry4').val();
+
+      database.ref().set({
+        name: tName,
+        destination: dName,
+        initial: aTime,
+        frequency: lambda
+      });
 
   // This resets the modal
   reset();
-  
+
 });
 
+// This click function runs the reset function only
 $(document).on('click', '#abortAbort', function() {
-  // This is reserved for firebase data entry and updating the table on screen
-
-
-  // This resets the modal
   reset();
-
 });
 
 $('.inputry1').on('click', function(){
@@ -71,29 +93,36 @@ $('.inputry3').on('click', function(){
 $('.inputry4').on('click', function(){
   $('.inputry4').val('');
 });
-// Firebase Set-Up - commented out until further notice
-// var config = {
-//       apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
-//       authDomain: "helloworld-4ff96.firebaseapp.com",
-//       databaseURL: "https://helloworld-4ff96.firebaseio.com/",
-//       storageBucket: "helloworld-4ff96.appspot.com"
-//     };
-//       firebase.initializeApp(config);
 
-// // This gives us our referrant
-// var database = firebase.database();
+database.ref().on("value", function(snapshot) {
 
-// // This adds the information to the database
-// $("#okGo").on("click", function() {
-//       database.ref().set({
-//       });
-//     });
+      var now = moment();
+      var frequency = snapshot.val().frequency;
+      var iTime = snapshot.val().initial;
+      trainName = snapshot.val().name;
+      trainDestination = snapshot.val().destination;
+      initialATime = snapshot.val().initial;
 
-// // This lets us access data for display from Firebase
-// database.ref().on("value", function(snapshot) {
-//       console.log(snapshot.val());
-//       $("#okGo").html(snapshot.val().clickCount);
-//       clickCounter = snapshot.val().clickCount;
-//     }, function(errorObject) {
-//       console.log("The read failed: " + errorObject.code);
-//     });
+      var initialTime = moment(iTime, 'HHmm');
+      var minutesSinceInitial = now.diff(initialTime, 'minutes');
+      var minutesUntilNext = frequency - (minutesSinceInitial % frequency);
+      var nextArrival = moment(now).add(minutesUntilNext, 'minutes').format('HHmm');
+
+      var newRow = $('<tr>');
+      var newRowClose = $('</tr>');
+      var newTrain = $('<td>' + trainName + '</td>')
+      var newDestination = $('<td>' + trainDestination + '</td>');
+      var initialArrival = $('<td>' + initialATime + '</td>');
+      var upcomingArrival = $('<td>' + nextArrival + '</td>');
+
+      newRow.append(newTrain);
+      newRow.append(newDestination);
+      newRow.append(initialArrival);
+      newRow.append(upcomingArrival);
+      newRow.append(newRowClose);
+
+      $('#trainTable').append(newRow);
+      
+    }), function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    };
