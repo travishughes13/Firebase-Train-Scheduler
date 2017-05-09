@@ -24,6 +24,8 @@ window.onclick = function(event) {
     }
 };
 
+childKeys = [];
+
 // Firebase Set-Up - commented out until further notice
 var config = {
       apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
@@ -62,12 +64,16 @@ $(document).on('click', '#makeEntry', function() {
       var aTime = $('.inputry3').val();
       var lambda = $('.inputry4').val();
 
-      database.ref().set({
+      database.ref().push({
         name: tName,
         destination: dName,
         initial: aTime,
         frequency: lambda
       });
+    database.ref().on('child_added', function(snap) {
+        console.log(snap.key);
+        childKeys.push(snap.key);
+    });
 
   // This resets the modal
   reset();
