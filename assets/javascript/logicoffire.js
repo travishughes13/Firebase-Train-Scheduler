@@ -64,16 +64,15 @@ $(document).on('click', '#makeEntry', function() {
       var aTime = $('.inputry3').val();
       var lambda = $('.inputry4').val();
 
-      database.ref().push({
+      var newPostRef = database.ref().push({
         name: tName,
         destination: dName,
         initial: aTime,
         frequency: lambda
       });
-    database.ref().on('child_added', function(snap) {
-        console.log(snap.key);
-        childKeys.push(snap.key);
-    });
+      var postId = newPostRef.key;
+
+      childKeys.push(postId);
 
   // This resets the modal
   reset();
