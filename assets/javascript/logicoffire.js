@@ -96,13 +96,15 @@ $('.inputry4').on('click', function(){
 });
 
 database.ref().on("value", function(snapshot) {
+    
+    for (i = 0; i < database.length; i++) {
 
       var now = moment();
-      var frequency = snapshot.val().frequency;
-      var iTime = snapshot.val().initial;
-      trainName = snapshot.val().name;
-      trainDestination = snapshot.val().destination;
-      initialATime = snapshot.val().initial;
+      var frequency = snapshot.val()[i].frequency;
+      var iTime = snapshot.val()[i].initial;
+      trainName = snapshot.val()[i].name;
+      trainDestination = snapshot.val()[i].destination;
+      initialATime = snapshot.val()[i].initial;
 
       var initialTime = moment(iTime, 'HHmm');
       var minutesSinceInitial = now.diff(initialTime, 'minutes');
@@ -126,4 +128,4 @@ database.ref().on("value", function(snapshot) {
       
     }), function(errorObject) {
       console.log("The read failed: " + errorObject.code);
-    };
+    }};
