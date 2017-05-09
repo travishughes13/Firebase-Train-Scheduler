@@ -62,7 +62,7 @@ $(document).on('click', '#makeEntry', function() {
       var aTime = $('.inputry3').val();
       var lambda = $('.inputry4').val();
 
-      database.ref().set({
+      database.ref().push({
         name: tName,
         destination: dName,
         initial: aTime,
