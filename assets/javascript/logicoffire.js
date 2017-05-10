@@ -102,16 +102,13 @@ $('.inputry4').on('click', function(){
 
 database.ref().on("child_added", function(snapshot) {
     
-    console.log(snapshot.val());
     var newPost = snapshot.val();
-    console.log("Destination: " + newPost.destination);
 
       var now = moment();
-      var frequency = snapshot.val().frequency;
-      var iTime = snapshot.val().initial;
-      trainName = snapshot.val().name;
-      trainDestination = snapshot.val().destination;
-      initialATime = snapshot.val().initial;
+      var frequency = newPost.frequency;
+      var iTime = newPost.initial;
+      trainName = newPost.name;
+      trainDestination = newPost.destination;
 
       var initialTime = moment(iTime, 'HHmm');
       var minutesSinceInitial = now.diff(initialTime, 'minutes');
@@ -122,7 +119,7 @@ database.ref().on("child_added", function(snapshot) {
       var newRowClose = $('</tr>');
       var newTrain = $('<td>' + trainName + '</td>')
       var newDestination = $('<td>' + trainDestination + '</td>');
-      var initialArrival = $('<td>' + initialATime + '</td>');
+      var initialArrival = $('<td>' + iTime + '</td>');
       var upcomingArrival = $('<td>' + nextArrival + '</td>');
 
       newRow.append(newTrain);
