@@ -100,7 +100,11 @@ $('.inputry4').on('click', function(){
   $('.inputry4').val('');
 });
 
-database.ref().on("value", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
+    
+    console.log(snapshot.val());
+    var newPost = snapshot.val():
+    console.log("Destination: " + newPost.destination);
 
       var now = moment();
       var frequency = snapshot.val().frequency;
