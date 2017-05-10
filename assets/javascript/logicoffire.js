@@ -103,7 +103,7 @@ $('.inputry4').on('click', function(){
 database.ref().on("child_added", function(snapshot) {
     
     console.log(snapshot.val());
-    var newPost = snapshot.val():
+    var newPost = snapshot.val();
     console.log("Destination: " + newPost.destination);
 
       var now = moment();
